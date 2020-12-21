@@ -26,10 +26,43 @@ class AddressBook {
 }
 
 public class AddressBookMain {
+
+    static Scanner sc = new Scanner(System.in);
+
+    public static Person addContacts(AddressBook book1) {
+        Person p1 = new Person();
+        System.out.println("Enter First Name:");
+        p1.firstname = sc.next();
+        boolean result = book1.viewAllPerson().stream().anyMatch(s -> s.firstname.equals(p1.firstname));
+        while(result) {
+            System.out.println("Entered First name already exist please enter another name");
+            p1.firstname = sc.next();
+            result = book1.viewAllPerson().stream().anyMatch(s -> s.firstname.equals(p1.firstname));
+        }
+        System.out.println("Enter the last name: ");
+        p1.lastname = sc.next();
+        System.out.println("Enter the address");
+        p1.address = sc.next();
+        System.out.println("Enter the City: ");
+        p1.city = sc.next();
+        System.out.println("Enter the State: ");
+        p1.state = sc.next();
+        System.out.println("Enter the zip: ");
+        p1.zip = sc.nextInt();
+        System.out.println("Enter the mobile number: ");
+        p1.phone = sc.nextInt();
+        System.out.println("Enter the email: ");
+        p1.email = sc.next();
+
+        System.out.println("Thank You");
+        return p1;
+    }
+
     public static void main(String[] args) {
         System.out.println("........Welcome......");
-        HashMap<String, ArrayList> AddressBookList= new HashMap<>();
-        AddressBook book1 = new AddressBook();
+
+        HashMap<String, AddressBook> AddressBookList= new HashMap<>();
+
         Scanner sc = new Scanner(System.in);
         int next = 1;
         while(next == 1)
@@ -41,47 +74,21 @@ public class AddressBookMain {
                     System.out.println("Enter the name of address book ");
                     String nameOfAddressBook = sc.next();
 
-                    System.out.println("Enter Number of person contacts you wish to add:");
+                    System.out.println("Enter Number of Contact persons you wish to add : ");
                     int noOfPerson = sc.nextInt();
 
-                    for(int i=0;i<noOfPerson;i++)
-                    {
-                        Person p1 = new Person();
-                        System.out.println("Enter First Name:");
-                        p1.firstname = sc.next();
+                    AddressBook book1 = new AddressBook();
 
-                        //Implemented stream to check any duplicates available
-                        boolean result = book1.viewAllPerson().stream().anyMatch(s -> s.firstname.equals(p1.firstname));
-                        while(result) {
-                            System.out.println("Entered First name already exist, please enter another name");
-                            p1.firstname = sc.next();
-
-                            result = book1.viewAllPerson().stream().anyMatch(s -> s.firstname.equals(p1.firstname));
-                        }
-                        System.out.println("Enter the last name: ");
-                        p1.lastname = sc.next();
-                        System.out.println("Enter the address");
-                        p1.address = sc.next();
-                        System.out.println("Enter the City: ");
-                        p1.city = sc.next();
-                        System.out.println("Enter the State: ");
-                        p1.state = sc.next();
-                        System.out.println("Enter the zip: ");
-                        p1.zip = sc.nextInt();
-                        System.out.println("Enter the mobile number: ");
-                        p1.phone = sc.nextInt();
-                        System.out.println("Enter the email: ");
-                        p1.email = sc.next();
-
-                        System.out.println("Thank You");
-
-                        book1.addPerson(p1);
+                    for(int i=0;i<noOfPerson;i++) {
+                        book1.addPerson(addContacts(book1));
                     }
-                    AddressBookList.put(nameOfAddressBook, book1.viewAllPerson());
-                    for(int i=0;i<book1.viewAllPerson().size();i++)
-                    {
+
+                    AddressBookList.put(nameOfAddressBook, book1);
+
+                    for(int i=0;i<book1.viewAllPerson().size();i++) {
                         System.out.println(book1.viewAllPerson().get(i).firstname);
                     }
+
                     int check =1;
                     while(check == 1)
                     {
@@ -178,7 +185,24 @@ public class AddressBookMain {
                     break;
             }
         }
-
+        System.out.println("Enter city name to search for: ");
+        String cityName = sc.next();
+        AddressBookList.values().forEach(e->{
+            e.contactDetails.forEach(s->{
+                if(s.city.equals(cityName)){
+                    System.out.println(s.firstname);
+                }
+            });
+        });
+        System.out.println("Enter State name to search for: ");
+        String stateName = sc.next();
+        AddressBookList.values().forEach(e->{
+            e.contactDetails.forEach(s->{
+                if(s.state.equals(stateName)){
+                    System.out.println(s.firstname);
+                }
+            });
+        });
     }
 
 }
