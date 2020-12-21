@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 class Person{
     String firstname;
@@ -217,6 +215,13 @@ public class AddressBookMain {
                 }
             });
         });
+
+        List<Person> personList = AddressBookList.values().stream().flatMap(s->s.contactDetails.stream()).collect(Collectors.toList());
+        long count = personList.stream().filter(s->s.city.equals(cityName)).count();
+        System.out.println("Count in "+cityName+" is "+count);
+        List<Person> personList1 = AddressBookList.values().stream().flatMap(s->s.contactDetails.stream()).collect(Collectors.toList());
+        long count1 = personList1.stream().filter(s->s.state.equals(stateName)).count();
+        System.out.println("Count in "+stateName+" is "+count1);
 
     }
 
