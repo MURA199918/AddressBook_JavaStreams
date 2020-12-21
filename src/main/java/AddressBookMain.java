@@ -57,6 +57,18 @@ public class AddressBookMain {
         return p1;
     }
 
+    public static void printContacts(Person p) {
+
+        System.out.println("\nFirst Name: " + p.firstname);
+        System.out.println("Last Name: " + p.lastname);
+        System.out.println("Address: " + p.address);
+        System.out.println("City: " + p.city);
+        System.out.println("State: " + p.state);
+        System.out.println("ZIP: " + p.zip);
+        System.out.println("Phone No: " + p.phone);
+        System.out.println("Email: " + p.email);
+    }
+
     public static void main(String[] args) {
         System.out.println("........Welcome......");
 
@@ -222,6 +234,19 @@ public class AddressBookMain {
         List<Person> personList1 = AddressBookList.values().stream().flatMap(s->s.contactDetails.stream()).collect(Collectors.toList());
         long count1 = personList1.stream().filter(s->s.state.equals(stateName)).count();
         System.out.println("Count in "+stateName+" is "+count1);
+
+        List<String> sortListByName = AddressBookList.values().stream().flatMap(s -> s.contactDetails.stream())
+                                     .map(st -> st.firstname).sorted().collect(Collectors.toList());
+        System.out.println("Sorted by First Names");
+        for (String name : sortListByName) {
+            AddressBookList.values().forEach(s -> {
+                s.contactDetails.forEach(sm -> {
+                    if (sm.firstname.equals(name)) {
+                        printContacts(sm);
+                    }
+                });
+            });
+        }
 
     }
 
