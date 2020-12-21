@@ -1,34 +1,19 @@
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import com.opencsv.bean.ColumnPositionMappingStrategy;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
 import java.io.File;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
-
-class Person{
-    String firstname;
-    String lastname;
-    String address;
-    String city;
-    String state;
-    int zip;
-    int phone;
-    String email;
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip=" + zip +
-                ", phone=" + phone +
-                ", email='" + email + '\'' +
-                '}';
-    }
-}
 
 class AddressBook {
     ArrayList<Person> contactDetails = new ArrayList<Person>();
@@ -45,6 +30,7 @@ class AddressBook {
 public class AddressBookMain {
 
     static Scanner sc = new Scanner(System.in);
+    public static final String ADDRESSBOOK_CSV_FILE = "C:\\Users\\mural\\IdeaProjects\\AddressBook_JavaStreams\\src\\test\\resources\\addressBook.csv";
 
     public static Person addContacts(AddressBook book1) {
         Person p1 = new Person();
@@ -87,7 +73,7 @@ public class AddressBookMain {
         System.out.println("Email: " + p.email);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("........Welcome......");
 
         HashMap<String, AddressBook> AddressBookList = new HashMap<>();
@@ -211,7 +197,7 @@ public class AddressBookMain {
         boolean nextOption = true;
         while (nextOption) {
             System.out.println(
-                    "Select 1. search a person by city\n 2.search a person by state\n 3. view person and cities\n 4. view person and states\n 5.find head count in city\n 6.find head count in state\n 7.Sorting of entries based on firstname\n 8.Sorting of entries based on city\n 9.Sorting of entries based on state\n 10.Sorting of entries based on zip\n 11.Write Addressbook Data into file\\n 12.Read AddressBook Data From File\\n 13.Exit");
+                    "Select 1. search a person by city\n 2.search a person by state\n 3. view person and cities\n 4. view person and states\n 5.find head count in city\n 6.find head count in state\n 7.Sorting of entries based on firstname\n 8.Sorting of entries based on city\n 9.Sorting of entries based on state\n 10.Sorting of entries based on zip\n 11.Write Addressbook Data into file\\n 12.Read AddressBook Data From File\\n 13.Write Data to CSV\\n 14.Read Data From CSV\\n 15.Exit");
             int option = sc.nextInt();
             switch (option) {
                 case 1:
@@ -369,12 +355,50 @@ public class AddressBookMain {
                     }
                     break;
                 case 13:
+                    try(Writer writer = Files.newBufferedWriter(Paths.get(ADDRESSBOOK_CSV_FILE));){
+                        ColumnPositionMappingStrategy columnPositionMappingStrategy = new ColumnPositionMappingStrategy();
+                        columnPositionMappingStrategy.setType(Person.class);
+
+                        String[] columns = new String[]
+                                { "FirstName","LastName","Address","City","State","ZIP", "Phone", "Email" };
+                        columnPositionMappingStrategy.setColumnMapping(columns);
+                        StatefulBeanToCsv<Person> beanToCsv = new StatefulBeanToCsvBuilder(writer)
+                                .withMappingStrategy(columnPositionMappingStrategy)
+                                .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
+                                .build();
+                        AddressBookList.values().forEach(x-> {
+                            try {
+                                beanToCsv.write(x.contactDetails);
+                            } catch (CsvDataTypeMismatchException e) {
+                                e.printStackTrace();
+                            } catch (CsvRequiredFieldEmptyException e) {
+                                e.printStackTrace();
+                            }
+                        });
+
+                    }
+                    break;
+                case 14:
+                    try(Reader reader = Files.newBufferedReader(Paths.get(ADDRESSBOOK_CSV_FILE));){
+                        CSVReader csvReader = new CSVReader(reader);
+                        List<String[]> records = csvReader.readAll();
+                        for (String[] record: records){
+                            System.out.println("FirstName: "+record[0]);
+                            System.out.println("LastName: "+record[1]);
+                            System.out.println("Address: "+record[2]);
+                            System.out.println("City: "+record[3]);
+                            System.out.println("State: "+record[4]);
+                            System.out.println("ZIP: "+record[5]);
+                            System.out.println("Phone: "+record[6]);
+                            System.out.println("Email: "+record[7]);
+                            System.out.println("---------------------");
+                        }
+                    }
+                case 15:
                     System.out.println("Thank You!!!!");
                     nextOption = false;
                     break;
             }
-
-
         }
     }
 
