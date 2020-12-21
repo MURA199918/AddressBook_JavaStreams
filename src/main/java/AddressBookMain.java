@@ -72,12 +72,11 @@ public class AddressBookMain {
     public static void main(String[] args) {
         System.out.println("........Welcome......");
 
-        HashMap<String, AddressBook> AddressBookList= new HashMap<>();
+        HashMap<String, AddressBook> AddressBookList = new HashMap<>();
 
         Scanner sc = new Scanner(System.in);
         int next = 1;
-        while(next == 1)
-        {
+        while (next == 1) {
             System.out.println("Choose \n 1. New AddressBook\n 2. Exit");
             int select = sc.nextInt();
             switch (select) {
@@ -90,19 +89,18 @@ public class AddressBookMain {
 
                     AddressBook book1 = new AddressBook();
 
-                    for(int i=0;i<noOfPerson;i++) {
+                    for (int i = 0; i < noOfPerson; i++) {
                         book1.addPerson(addContacts(book1));
                     }
 
                     AddressBookList.put(nameOfAddressBook, book1);
 
-                    for(int i=0;i<book1.viewAllPerson().size();i++) {
+                    for (int i = 0; i < book1.viewAllPerson().size(); i++) {
                         System.out.println(book1.viewAllPerson().get(i).firstname);
                     }
 
-                    int check =1;
-                    while(check == 1)
-                    {
+                    int check = 1;
+                    while (check == 1) {
                         System.out.println("Choose 1.Edit\n 2.Delete\n 3.Exit");
                         int option = sc.nextInt();
                         String nameofperson;
@@ -111,14 +109,12 @@ public class AddressBookMain {
                                 System.out.println("Enter firstname");
                                 nameofperson = sc.next();
 
-                                for(int i=0;i<book1.viewAllPerson().size();i++)
-                                {
-                                    if(nameofperson.equalsIgnoreCase(book1.viewAllPerson().get(i).firstname))
-                                    {
+                                for (int i = 0; i < book1.viewAllPerson().size(); i++) {
+                                    if (nameofperson.equalsIgnoreCase(book1.viewAllPerson().get(i).firstname)) {
                                         System.out.println("Which detail you want to change\n 1.First Name\n 2.Last Name\n"
                                                 + "3.Address\n 4. City\n 5.State \n 6. zip \n 7. phone no\n 8.email");
                                         int choose = sc.nextInt();
-                                        switch(choose) {
+                                        switch (choose) {
                                             case 1:
                                                 System.out.println("New First Name:");
                                                 book1.viewAllPerson().get(i).firstname = sc.next();
@@ -156,36 +152,33 @@ public class AddressBookMain {
                                 }
                                 check = 1;
                                 break;
-                            case 2 :
+                            case 2:
                                 System.out.println("Enter firstname");
                                 nameofperson = sc.next();
-                                for(int i=0;i<book1.viewAllPerson().size();i++)
-                                {
-                                    if(nameofperson.equalsIgnoreCase(book1.viewAllPerson().get(i).firstname))
-                                    {
+                                for (int i = 0; i < book1.viewAllPerson().size(); i++) {
+                                    if (nameofperson.equalsIgnoreCase(book1.viewAllPerson().get(i).firstname)) {
                                         book1.viewAllPerson().remove(i);
                                     }
                                 }
                                 check = 1;
                                 break;
 
-                            case 3 :
+                            case 3:
                                 check = 0;
                                 break;
 
                         }
                     }
-                    for(int i=0;i<book1.viewAllPerson().size();i++)
-                    {
-                        System.out.println("Details of "+(i+1)+" Person");
-                        System.out.println("First Name: "+book1.viewAllPerson().get(i).firstname);
-                        System.out.println("Last Name: "+book1.viewAllPerson().get(i).lastname);
-                        System.out.println("Address: "+book1.viewAllPerson().get(i).address);
-                        System.out.println("City: "+book1.viewAllPerson().get(i).city);
-                        System.out.println("State: "+book1.viewAllPerson().get(i).state);
-                        System.out.println("ZIP: "+book1.viewAllPerson().get(i).zip);
-                        System.out.println("Phone No: "+book1.viewAllPerson().get(i).phone);
-                        System.out.println("Email: "+book1.viewAllPerson().get(i).email);
+                    for (int i = 0; i < book1.viewAllPerson().size(); i++) {
+                        System.out.println("Details of " + (i + 1) + " Person");
+                        System.out.println("First Name: " + book1.viewAllPerson().get(i).firstname);
+                        System.out.println("Last Name: " + book1.viewAllPerson().get(i).lastname);
+                        System.out.println("Address: " + book1.viewAllPerson().get(i).address);
+                        System.out.println("City: " + book1.viewAllPerson().get(i).city);
+                        System.out.println("State: " + book1.viewAllPerson().get(i).state);
+                        System.out.println("ZIP: " + book1.viewAllPerson().get(i).zip);
+                        System.out.println("Phone No: " + book1.viewAllPerson().get(i).phone);
+                        System.out.println("Email: " + book1.viewAllPerson().get(i).email);
                     }
                     next = 1;
                     break;
@@ -196,58 +189,152 @@ public class AddressBookMain {
                     break;
             }
         }
-        System.out.println("Enter city name to search for: ");
-        String cityName = sc.next();
-        AddressBookList.values().forEach(e->{
-            e.contactDetails.forEach(s->{
-                if(s.city.equals(cityName)){
-                    System.out.println(s.firstname);
-                }
-            });
-        });
-        System.out.println("Enter State name to search for: ");
-        String stateName = sc.next();
-        AddressBookList.values().forEach(e->{
-            e.contactDetails.forEach(s->{
-                if(s.state.equals(stateName)){
-                    System.out.println(s.firstname);
-                }
-            });
-        });
 
-        Map<String, String> cityVsPerson = new HashMap<>();
-        Map<String, String> stateVsPerson = new HashMap<>();
-        System.out.println("Name : city : state");
-        AddressBookList.values().forEach(s->{
-            s.contactDetails.forEach(sm->{
-                {
-                    cityVsPerson.put(sm.firstname, sm.city);
-                    stateVsPerson.put(sm.firstname, sm.state);
-                    System.out.println(sm.firstname+" : "+sm.city+" : "+sm.state);
-                }
-            });
-        });
-
-        List<Person> personList = AddressBookList.values().stream().flatMap(s->s.contactDetails.stream()).collect(Collectors.toList());
-        long count = personList.stream().filter(s->s.city.equals(cityName)).count();
-        System.out.println("Count in "+cityName+" is "+count);
-        List<Person> personList1 = AddressBookList.values().stream().flatMap(s->s.contactDetails.stream()).collect(Collectors.toList());
-        long count1 = personList1.stream().filter(s->s.state.equals(stateName)).count();
-        System.out.println("Count in "+stateName+" is "+count1);
-
-        List<String> sortListByName = AddressBookList.values().stream().flatMap(s -> s.contactDetails.stream())
-                                     .map(st -> st.firstname).sorted().collect(Collectors.toList());
-        System.out.println("Sorted by First Names");
-        for (String name : sortListByName) {
-            AddressBookList.values().forEach(s -> {
-                s.contactDetails.forEach(sm -> {
-                    if (sm.firstname.equals(name)) {
-                        printContacts(sm);
+        boolean nextOption = true;
+        while (nextOption) {
+            System.out.println(
+                    "Select 1. search a person by city\n 2.search a person by state\n 3. view person and cities\n 4. view person and states\n 5.find head count in city\n 6.find head count in state\n 7.Sorting of entries based on firstname\n 8.Sorting of entries based on city\n 9.Sorting of entries based on state\n 10.Sorting of entries based on zip\n 11.Exit");
+            int option = sc.nextInt();
+            switch (option) {
+                case 1:
+                    System.out.println("Which city you want to find out:");
+                    String cityName = sc.next();
+                    AddressBookList.values().forEach(s -> {
+                        s.contactDetails.forEach(sm -> {
+                            if (sm.city.equals(cityName)) {
+                                System.out.println(sm.firstname);
+                            }
+                        });
+                    });
+                    nextOption = true;
+                    break;
+                case 2:
+                    System.out.println("Which state you want to find out:");
+                    String stateName = sc.next();
+                    AddressBookList.values().forEach(s -> {
+                        s.contactDetails.forEach(sm -> {
+                            if (sm.state.equals(stateName)) {
+                                System.out.println(sm.firstname);
+                            }
+                        });
+                    });
+                    nextOption = true;
+                    break;
+                case 3:
+                    Map<String, String> cityVsPerson = new HashMap<>();
+                    AddressBookList.values().forEach(s -> {
+                        s.contactDetails.forEach(sm -> {
+                            {
+                                cityVsPerson.put(sm.firstname, sm.city);
+                                System.out.println(sm.firstname + " : " + sm.city);
+                            }
+                        });
+                    });
+                    nextOption = true;
+                    break;
+                case 4:
+                    Map<String, String> stateVsPerson = new HashMap<>();
+                    AddressBookList.values().forEach(s -> {
+                        s.contactDetails.forEach(sm -> {
+                            {
+                                stateVsPerson.put(sm.firstname, sm.city);
+                                System.out.println(sm.firstname + " : " + sm.state);
+                            }
+                        });
+                    });
+                    nextOption = true;
+                    break;
+                case 5:
+                    System.out.println("Find Contact By City name:");
+                    String cityName1 = sc.next();
+                    List<Person> personList = AddressBookList.values().stream()
+                            .flatMap(s -> s.contactDetails.stream()).collect(Collectors.toList());
+                    long count = personList.stream().filter(s -> s.city.equals(cityName1)).count();
+                    System.out.println("Count in " + cityName1 + " is " + count);
+                    nextOption = true;
+                    break;
+                case 6:
+                    System.out.println("Find Contact By State name:");
+                    String stateName1 = sc.next();
+                    List<Person> personList1 = AddressBookList.values().stream()
+                            .flatMap(s -> s.contactDetails.stream()).collect(Collectors.toList());
+                    long count1 = personList1.stream().filter(s -> s.state.equals(stateName1)).count();
+                    System.out.println("Count in " + stateName1 + " is " + count1);
+                    nextOption = true;
+                    break;
+                case 7:
+                    System.out.println("Sorting entries based on firstname:");
+                    List<String> personList2 = AddressBookList.values().stream()
+                            .flatMap(s -> s.contactDetails.stream()).map(st -> st.firstname).sorted()
+                            .collect(Collectors.toList());
+                    for (String name : personList2) {
+                        AddressBookList.values().forEach(s -> {
+                            s.contactDetails.forEach(sm -> {
+                                if (sm.firstname.equals(name)) {
+                                    printContacts(sm);
+                                }
+                            });
+                        });
                     }
-                });
-            });
-        }
+                    nextOption = true;
+                    break;
+                case 8:
+                    System.out.println("Sorting entries based on city:");
+                    List<String> personList3 = AddressBookList.values().stream()
+                            .flatMap(s -> s.contactDetails.stream()).map(st -> st.city).sorted().distinct()
+                            .collect(Collectors.toList());
+                    for (String city : personList3) {
+                        AddressBookList.values().forEach(s -> {
+                            s.contactDetails.forEach(sm -> {
+                                if (sm.city.equals(city)) {
+                                    printContacts(sm);
+                                }
+                            });
+                        });
+                    }
+                    nextOption = true;
+                    break;
+                case 9:
+                    System.out.println("Sorting entries based on state:");
+                    List<String> personList4 = AddressBookList.values().stream()
+                            .flatMap(s -> s.contactDetails.stream()).map(st -> st.state).sorted().distinct()
+                            .collect(Collectors.toList());
+                    System.out.println(personList4);
+                    for (String state : personList4) {
+                        AddressBookList.values().forEach(s -> {
+                            s.contactDetails.forEach(sm -> {
+                                if (sm.state.equals(state)) {
+                                    printContacts(sm);
+                                }
+                            });
+                        });
+                    }
+                    nextOption = true;
+                    break;
+                case 10:
+                    System.out.println("Sorting entries based on zip:");
+                    List<Integer> personList5 = AddressBookList.values().stream()
+                            .flatMap(s -> s.contactDetails.stream()).map(st -> st.zip).sorted().distinct()
+                            .collect(Collectors.toList());
+                    for (Integer zip : personList5) {
+                        AddressBookList.values().forEach(s -> {
+                            s.contactDetails.forEach(sm -> {
+                                if (sm.zip == zip) {
+                                    printContacts(sm);
+                                }
+                            });
+                        });
+                    }
+                    nextOption = true;
+                    break;
+                case 11:
+                    System.out.println("Thank You!!!!");
+                    nextOption = false;
+                    break;
+            }
 
+
+        }
     }
 
 }
