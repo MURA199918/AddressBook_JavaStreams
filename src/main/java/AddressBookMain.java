@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class Person{
@@ -203,6 +204,20 @@ public class AddressBookMain {
                 }
             });
         });
+
+        Map<String, String> cityVsPerson = new HashMap<>();
+        Map<String, String> stateVsPerson = new HashMap<>();
+        System.out.println("Name : city : state");
+        AddressBookList.values().forEach(s->{
+            s.contactDetails.forEach(sm->{
+                {
+                    cityVsPerson.put(sm.firstname, sm.city);
+                    stateVsPerson.put(sm.firstname, sm.state);
+                    System.out.println(sm.firstname+" : "+sm.city+" : "+sm.state);
+                }
+            });
+        });
+
     }
 
 }
