@@ -1,11 +1,28 @@
+import com.opencsv.bean.CsvBindByName;
+
 public class Person {
+    @CsvBindByName
     String firstname;
+
+    @CsvBindByName
     String lastname;
+
+    @CsvBindByName
     String address;
+
+    @CsvBindByName
     String city;
+
+    @CsvBindByName
     String state;
+
+    @CsvBindByName
     int zip;
+
+    @CsvBindByName
     int phone;
+
+    @CsvBindByName
     String email;
 
     public String getFirstname() {
