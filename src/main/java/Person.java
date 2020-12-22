@@ -1,29 +1,47 @@
 import com.opencsv.bean.CsvBindByName;
 
+import java.util.Objects;
+
 public class Person {
-    @CsvBindByName
+    int id;
+
     String firstname;
 
-    @CsvBindByName
     String lastname;
 
-    @CsvBindByName
     String address;
 
-    @CsvBindByName
     String city;
 
-    @CsvBindByName
     String state;
 
-    @CsvBindByName
     int zip;
 
-    @CsvBindByName
     int phone;
 
-    @CsvBindByName
     String email;
+
+    String type;
+
+    public Person() {
+    }
+
+    public Person(int id, String firstname, String lastname, String address, String city, String state, int zip, int phone, String email, String type) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phone = phone;
+        this.email = email;
+        this.type = type;
+    }
+
+    public int getId(){ return id; }
+
+    public void setId(int id){ this.id = id; }
 
     public String getFirstname() {
         return firstname;
@@ -89,6 +107,10 @@ public class Person {
         this.email = email;
     }
 
+    public String getType() { return type;}
+
+    public void setType(String type) { this.type = type; }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -102,4 +124,22 @@ public class Person {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id &&
+                zip == person.zip &&
+                phone == person.phone &&
+                firstname.equals(person.firstname) &&
+                lastname.equals(person.lastname) &&
+                address.equals(person.address) &&
+                city.equals(person.city) &&
+                state.equals(person.state) &&
+                email.equals(person.email) &&
+                type.equals(person.type);
+    }
+
 }

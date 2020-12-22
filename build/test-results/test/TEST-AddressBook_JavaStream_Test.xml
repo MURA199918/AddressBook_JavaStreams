@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-22T09:50:36" hostname="DESKTOP-J9DM2GE" time="0.291">
+  <properties/>
+  <testcase name="givenAddressBookInDB_whenRetrieved_ShouldMatchDataCount" classname="AddressBook_JavaStream_Test" time="0.291"/>
+  <system-out><![CDATA[connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@d27845a
+Answer found
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
