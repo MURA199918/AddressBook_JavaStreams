@@ -41,4 +41,14 @@ public class AddressBook_JavaStream_Test {
         int noOfContacts = addressBookService.getNoOfActiveContacts();
         Assert.assertEquals(6,noOfContacts);
     }
+
+    @Test
+    public void givenDateRange_WhenRetrieved_ShouldMatchAddressBook_DataCount() throws AddressBookException {
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
+        LocalDate startDate = LocalDate.of(2018,01,01);
+        LocalDate endDate = LocalDate.now();
+        List<Person> addressBookData = addressBookService.readAddressBookForDateRange(AddressBookService.IOService.DB_IO, startDate, endDate);
+        Assert.assertEquals(7, addressBookData.size());
+    }
 }

@@ -96,6 +96,12 @@ public class AddressBookDBService {
         }
     }
 
+    public List<Person> getAddressBookContactDateRange(LocalDate startDate, LocalDate endDate) throws AddressBookException {
+        String sql = String.format("SELECT * FROM address_book WHERE date BETWEEN '%s' AND '%s';",
+                Date.valueOf(startDate), Date.valueOf(endDate));
+        return this.getAddressBookDataUsingDB(sql);
+    }
+
 
     public Person addContactToBook(String firstname, String lastname, String address, String city, String state, int zip, int phone, String email, String type) {
         int contactId = -1;

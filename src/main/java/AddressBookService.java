@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -53,6 +54,12 @@ public class AddressBookService {
         if(ioService.equals(IOService.DB_IO))
             this.addressBookDataList = addressBookDBService.readData();
         return this.addressBookDataList;
+    }
+
+    public List<Person> readAddressBookForDateRange(IOService ioService, LocalDate startDate, LocalDate endDate) throws AddressBookException {
+        if(ioService.equals(IOService.DB_IO))
+            return addressBookDBService.getAddressBookContactDateRange(startDate, endDate);
+        return null;
     }
 
     public void addContactToBook(String firstname, String lastname, String address, String city, String state, int zip, int phone, String email, String type) {
