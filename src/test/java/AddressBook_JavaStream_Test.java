@@ -16,15 +16,6 @@ public class AddressBook_JavaStream_Test {
     }
 
     @Test
-    public void givenNewContact_WhenAdded_ShouldSyncWithDB() throws AddressBookException {
-        AddressBookService addressBookService = new AddressBookService();
-        addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
-        addressBookService.addContactToBook("Mark", "rex", "firstcross", "bangalore", "karnataka", 456, 8934, "mark@abc.com", "family");
-        boolean result = addressBookService.checkAddressBookInSyncWithDB("Mark");
-        Assert.assertTrue(result);
-    }
-
-    @Test
     public void givenNewAddressForContact_WhenUpdated_ShouldSyncWithDB() throws AddressBookException {
         AddressBookService addressBookService = new AddressBookService();
         List<Person> addressBookData = addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
@@ -67,5 +58,14 @@ public class AddressBook_JavaStream_Test {
         addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
         Map<String, Double> countByCity = addressBookService.readCountByState(AddressBookService.IOService.DB_IO);
         Assert.assertTrue(countByCity.get("tamilnadu").equals(3.0) && countByCity.get("karnataka").equals(1.0));
+    }
+
+    @Test
+    public void givenNewContact_WhenAdded_ShouldSyncWithDB() throws AddressBookException {
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
+        addressBookService.addContactToBook("Mark", "rex", "firstcross", "bangalore", "karnataka", 456, 8934, "mark@abc.com", "family");
+        boolean result = addressBookService.checkAddressBookInSyncWithDB("Mark");
+        Assert.assertTrue(result);
     }
 }

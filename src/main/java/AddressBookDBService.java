@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class AddressBookDBService {
 
-    private List<Person> contactList;
     private static AddressBookDBService addressBookDBService;
     private PreparedStatement addressBookDataStatement;
 
