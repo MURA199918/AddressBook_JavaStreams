@@ -1,3 +1,7 @@
 \connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-Dconnection is successful!!!!com.mysql.jdbc.JDBC4Connection@d27845a
-Answer found
+Dconnection is successful!!!!com.mysql.jdbc.JDBC4Connection@a14e369
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@111ffa86
+Contact Removed
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@3413908a

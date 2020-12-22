@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-22T09:50:36" hostname="DESKTOP-J9DM2GE" time="0.291">
+<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-22T12:16:11" hostname="DESKTOP-J9DM2GE" time="0.337">
   <properties/>
-  <testcase name="givenAddressBookInDB_whenRetrieved_ShouldMatchDataCount" classname="AddressBook_JavaStream_Test" time="0.291"/>
+  <testcase name="givenContactName_ShouldRemove_AddressBookData_FromDataBase" classname="AddressBook_JavaStream_Test" time="0.337"/>
   <system-out><![CDATA[connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@d27845a
-Answer found
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@a14e369
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@111ffa86
+Contact Removed
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@3413908a
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
