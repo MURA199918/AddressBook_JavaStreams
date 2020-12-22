@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.Map;
 
 public class AddressBook_JavaStream_Test {
     @Test
@@ -50,5 +51,13 @@ public class AddressBook_JavaStream_Test {
         LocalDate endDate = LocalDate.now();
         List<Person> addressBookData = addressBookService.readAddressBookForDateRange(AddressBookService.IOService.DB_IO, startDate, endDate);
         Assert.assertEquals(7, addressBookData.size());
+    }
+
+    @Test
+    public void givenAddressBookData_whenCountRetrieveByCity_ShouldReturnProperValue() throws AddressBookException{
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
+        Map<String, Double> countByCity = addressBookService.readCountByCity(AddressBookService.IOService.DB_IO);
+        Assert.assertTrue(countByCity.get("trichy").equals(3.0) && countByCity.get("bangalore").equals(1.0));
     }
 }

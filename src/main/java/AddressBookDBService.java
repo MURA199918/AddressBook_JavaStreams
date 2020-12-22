@@ -1,7 +1,9 @@
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AddressBookDBService {
 
@@ -179,5 +181,26 @@ public class AddressBookDBService {
             throw new AddressBookException(e.getMessage(),AddressBookException.ExceptionType.CONNECTION_PROBLEM);
         }
         return noOfActiveContacts;
+    }
+
+    public Map<String, Double> getCountByCity() {
+        String sql = "SELECT city, count(city) as count_city from address_book GROUP BY city";
+        return getCompileByAttributes("city","count_city",sql);
+    }
+
+    private Map<String, Double> getCompileByAttributes(String attribute, String compile, String sql) {
+        Map<String, Double> countMap = new HashMap<>();
+        try(Connection connection = this.getConnection();){
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            while(result.next()) {
+                String getAttribute = result.getString(attribute);
+                Double count = result.getDouble(compile);
+                countMap.put(getAttribute, count);
+            }
+        }catch (SQLException e) {
+            e.getMessage();
+        }
+        return countMap;
     }
 }
