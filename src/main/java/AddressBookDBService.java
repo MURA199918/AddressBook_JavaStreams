@@ -109,7 +109,7 @@ public class AddressBookDBService {
         }
         try(Statement statement = connection.createStatement()) {
             String sql = String.format("INSERT INTO address_book (firstname, lastname, address, city, state, zip, phone, email, type) "+
-                    "VALUES ( '%s', '%s', '%s', '%s', '%s', %s, %s, '%s', '%s' )", firstname, lastname, address, city, state, zip, phone, email, type);
+                    "VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )", firstname, lastname, address, city, state, zip, phone, email, type);
             int rowAffected = statement.executeUpdate(sql, statement.RETURN_GENERATED_KEYS);
             if(rowAffected == 1){
                 ResultSet resultSet = statement.getGeneratedKeys();
