@@ -188,6 +188,11 @@ public class AddressBookDBService {
         return getCompileByAttributes("city","count_city",sql);
     }
 
+    public Map<String, Double> getCountByState() {
+        String sql = "SELECT state, count(state) as count_state from address_book GROUP BY state";
+        return getCompileByAttributes("state","count_state",sql);
+    }
+
     private Map<String, Double> getCompileByAttributes(String attribute, String compile, String sql) {
         Map<String, Double> countMap = new HashMap<>();
         try(Connection connection = this.getConnection();){

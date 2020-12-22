@@ -69,6 +69,12 @@ public class AddressBookService {
         return null;
     }
 
+    public Map<String, Double> readCountByState(IOService ioService) {
+        if(ioService.equals(IOService.DB_IO))
+            return addressBookDBService.getCountByState();
+        return null;
+    }
+
     public void addContactToBook(String firstname, String lastname, String address, String city, String state, int zip, int phone, String email, String type) {
         addressBookDataList.add(addressBookDBService.addContactToBook(firstname, lastname, address, city, state, zip, phone, email, type));
     }

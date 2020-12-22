@@ -60,4 +60,12 @@ public class AddressBook_JavaStream_Test {
         Map<String, Double> countByCity = addressBookService.readCountByCity(AddressBookService.IOService.DB_IO);
         Assert.assertTrue(countByCity.get("trichy").equals(3.0) && countByCity.get("bangalore").equals(1.0));
     }
+
+    @Test
+    public void givenAddressBookData_whenCountRetrieveByState_ShouldReturnProperValue() throws AddressBookException {
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
+        Map<String, Double> countByCity = addressBookService.readCountByState(AddressBookService.IOService.DB_IO);
+        Assert.assertTrue(countByCity.get("tamilnadu").equals(3.0) && countByCity.get("karnataka").equals(1.0));
+    }
 }

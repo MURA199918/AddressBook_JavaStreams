@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-22T14:09:47" hostname="DESKTOP-J9DM2GE" time="0.295">
+<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-22T14:14:55" hostname="DESKTOP-J9DM2GE" time="0.288">
   <properties/>
-  <testcase name="givenAddressBookData_whenCountRetrieveByCity_ShouldReturnProperValue" classname="AddressBook_JavaStream_Test" time="0.295"/>
+  <testcase name="givenAddressBookData_whenCountRetrieveByState_ShouldReturnProperValue" classname="AddressBook_JavaStream_Test" time="0.288"/>
   <system-out><![CDATA[connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@709b87b3
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@5e74c902
 connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@2b4eb065
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@25350cad
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
