@@ -106,17 +106,11 @@ public class AddressBookDBService {
 
     public Person addContactToBook(String firstname, String lastname, String address, String city, String state, int zip, int phone, String email, String type) {
         int contactId = -1;
-        Connection connection = null;
         Person personData = null;
-        try{
-            connection = this.getConnection();
-            connection.setAutoCommit(false);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        try(Statement statement = connection.createStatement()) {
-            String sql = String.format("INSERT INTO address_book (firstname, lastname, address, city, state, zip, phone, email, type) "+
-                    "VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )", firstname, lastname, address, city, state, zip, phone, email, type);
+        String sql = String.format("INSERT INTO address_book (firstname, lastname, address, city, state, zip, phone, email, type) "+
+                "VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )", firstname, lastname, address, city, state, zip, phone, email, type);
+        try(Connection connection = this.getConnection()) {
+            Statement statement = connection.createStatement();
             int rowAffected = statement.executeUpdate(sql, statement.RETURN_GENERATED_KEYS);
             if(rowAffected == 1){
                 ResultSet resultSet = statement.getGeneratedKeys();
@@ -125,12 +119,6 @@ public class AddressBookDBService {
             personData = new Person(contactId, firstname, lastname, address, city, state, zip, phone, email, type);
         }catch (SQLException e){
             e.printStackTrace();
-            try {
-                connection.rollback();
-                return personData;
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return personData;
     }

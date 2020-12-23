@@ -1,6 +1,55 @@
 \connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@3dfce930
+Contact being Added: Jeff
 \connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@7e4de117
+Dconnection is successful!!!!com.mysql.jdbc.JDBC4Connection@55fa449
+Contact Added: Jeff
+Contact being Added: Bill
 \connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-Dconnection is successful!!!!com.mysql.jdbc.JDBC4Connection@38a2850
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@7a5158bc
+Contact Added: Bill
+Contact being Added: Mark
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@1048bf1c
+Contact Added: Mark
+Contact being Added: Sundar
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@5a9bb210
+Contact Added: Sundar
+Contact being Added: Mukesh
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Dconnection is successful!!!!com.mysql.jdbc.JDBC4Connection@8e6a4c0
+Contact Added: Mukesh
+Contact being Added: Anil
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@3affd19b
+Contact Added: Anil
+—[Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='Priya', lastname='hello', address='nagar', city='mumbai', state='maharashtra', zip=400076, phone=98321, email='priya@abc.com'}, Person{firstname='Viknesh', lastname='welcome', address='nagar', city='trichy', state='tamilnadu', zip=620018, phone=98299, email='vicky@abc.com'}, Person{firstname='John', lastname='willow', address='secondcross', city='kolkata', state='kerela', zip=356987, phone=9877222, email='john@abc.com'}, Person{firstname='Rick', lastname='welx', address='thirdcross', city='bangalore', state='karnataka', zip=234567, phone=999888, email='rick@abc.com'}, Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='hello', lastname='world', address='church', city='jk', state='wx', zip=32, phone=98934, email='hello@abc.com'}, Person{firstname='Mark', lastname='rex', address='firstcross', city='bangalore', state='karnataka', zip=456, phone=8934, email='mark@abc.com'}, Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}]
+(Duration without Thread : PT0.1156448S
+Contact being Added: Bill
+Contact being Added: Jeff
+Contact being Added: Sundar
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Contact being Added: Mukesh
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Contact being Added: Mark
+Contact being Added: Anil
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+\connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@5f98e5b3
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@3216082c
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@591b4294
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@5be5b327
+Contact Added: Jeff
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@2056fb9e
+Contact Added: Sundar
+Contact Added: Bill
+Econnection is successful!!!!com.mysql.jdbc.JDBC4Connection@71fbe415
+Contact Added: Mark
+Contact Added: Anil
+Contact Added: Mukesh
+þ[Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}]
+%Duration With Threads: PT0.0510835S
+“[Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='Priya', lastname='hello', address='nagar', city='mumbai', state='maharashtra', zip=400076, phone=98321, email='priya@abc.com'}, Person{firstname='Viknesh', lastname='welcome', address='nagar', city='trichy', state='tamilnadu', zip=620018, phone=98299, email='vicky@abc.com'}, Person{firstname='John', lastname='willow', address='secondcross', city='kolkata', state='kerela', zip=356987, phone=9877222, email='john@abc.com'}, Person{firstname='Rick', lastname='welx', address='thirdcross', city='bangalore', state='karnataka', zip=234567, phone=999888, email='rick@abc.com'}, Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='hello', lastname='world', address='church', city='jk', state='wx', zip=32, phone=98934, email='hello@abc.com'}, Person{firstname='Mark', lastname='rex', address='firstcross', city='bangalore', state='karnataka', zip=456, phone=8934, email='mark@abc.com'}, Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}, Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}]

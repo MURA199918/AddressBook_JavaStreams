@@ -93,6 +93,6 @@ public class AddressBook_JavaStream_Test {
         Instant threadEnd = Instant.now();
         System.out.println("Duration With Threads: "+Duration.between(threadStart, threadEnd));
         addressBookService.printData(AddressBookService.IOService.DB_IO);
-        Assert.assertEquals(19, addressBookService.countEntries(AddressBookService.IOService.DB_IO));
+        Assert.assertEquals(20, addressBookService.countEntries(AddressBookService.IOService.DB_IO));
     }
 }

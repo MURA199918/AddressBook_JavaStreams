@@ -1,70 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-12-23T10:19:33" hostname="DESKTOP-J9DM2GE" time="0.309">
+<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-23T10:43:26" hostname="DESKTOP-J9DM2GE" time="0.436">
   <properties/>
-  <testcase name="givenNewContact_WhenAdded_ShouldSyncWithDB" classname="AddressBook_JavaStream_Test" time="0.309">
-    <failure message="java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-	at java.base/java.util.Objects.checkIndex(Objects.java:372)
-	at java.base/java.util.ArrayList.get(ArrayList.java:459)
-	at AddressBookService.checkAddressBookInSyncWithDB(AddressBookService.java:112)
-	at AddressBook_JavaStream_Test.givenNewContact_WhenAdded_ShouldSyncWithDB(AddressBook_JavaStream_Test.java:71)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-</failure>
-  </testcase>
+  <testcase name="given6Contacts_WhenAddedToDB_ShouldMatchAddressBook_ContactEntries" classname="AddressBook_JavaStream_Test" time="0.436"/>
   <system-out><![CDATA[connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@3dfce930
+Contact being Added: Jeff
 connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@7e4de117
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@55fa449
+Contact Added: Jeff
+Contact being Added: Bill
 connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@38a2850
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@7a5158bc
+Contact Added: Bill
+Contact being Added: Mark
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@1048bf1c
+Contact Added: Mark
+Contact being Added: Sundar
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@5a9bb210
+Contact Added: Sundar
+Contact being Added: Mukesh
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@8e6a4c0
+Contact Added: Mukesh
+Contact being Added: Anil
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@3affd19b
+Contact Added: Anil
+[Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='Priya', lastname='hello', address='nagar', city='mumbai', state='maharashtra', zip=400076, phone=98321, email='priya@abc.com'}, Person{firstname='Viknesh', lastname='welcome', address='nagar', city='trichy', state='tamilnadu', zip=620018, phone=98299, email='vicky@abc.com'}, Person{firstname='John', lastname='willow', address='secondcross', city='kolkata', state='kerela', zip=356987, phone=9877222, email='john@abc.com'}, Person{firstname='Rick', lastname='welx', address='thirdcross', city='bangalore', state='karnataka', zip=234567, phone=999888, email='rick@abc.com'}, Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='hello', lastname='world', address='church', city='jk', state='wx', zip=32, phone=98934, email='hello@abc.com'}, Person{firstname='Mark', lastname='rex', address='firstcross', city='bangalore', state='karnataka', zip=456, phone=8934, email='mark@abc.com'}, Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}]
+Duration without Thread : PT0.1156448S
+Contact being Added: Bill
+Contact being Added: Jeff
+Contact being Added: Sundar
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Contact being Added: Mukesh
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+Contact being Added: Mark
+Contact being Added: Anil
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@5f98e5b3
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@3216082c
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@591b4294
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@5be5b327
+Contact Added: Jeff
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@2056fb9e
+Contact Added: Sundar
+Contact Added: Bill
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@71fbe415
+Contact Added: Mark
+Contact Added: Anil
+Contact Added: Mukesh
+[Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}]
+Duration With Threads: PT0.0510835S
+[Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='Priya', lastname='hello', address='nagar', city='mumbai', state='maharashtra', zip=400076, phone=98321, email='priya@abc.com'}, Person{firstname='Viknesh', lastname='welcome', address='nagar', city='trichy', state='tamilnadu', zip=620018, phone=98299, email='vicky@abc.com'}, Person{firstname='John', lastname='willow', address='secondcross', city='kolkata', state='kerela', zip=356987, phone=9877222, email='john@abc.com'}, Person{firstname='Rick', lastname='welx', address='thirdcross', city='bangalore', state='karnataka', zip=234567, phone=999888, email='rick@abc.com'}, Person{firstname='Murali', lastname='saravanan', address='Nth-Cross', city='trichy', state='tamilnadu', zip=620019, phone=945883, email='murali@abc.com'}, Person{firstname='hello', lastname='world', address='church', city='jk', state='wx', zip=32, phone=98934, email='hello@abc.com'}, Person{firstname='Mark', lastname='rex', address='firstcross', city='bangalore', state='karnataka', zip=456, phone=8934, email='mark@abc.com'}, Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}, Person{firstname='Jeff', lastname='Bezos', address='1st-cross', city='mumbai', state='maharashtra', zip=234, phone=99865, email='jeff@abc.com'}, Person{firstname='Bill', lastname='Gates', address='2nd-cross', city='bangalore', state='karnataka', zip=567, phone=991133, email='bill@abc.com'}, Person{firstname='Sundar', lastname='Pichai', address='4th-cross', city='bangalore', state='karnataka', zip=734, phone=92100, email='sundar@abc.com'}, Person{firstname='Mark', lastname='Zuckerberg', address='3rd-cross', city='hyderabad', state='andhrapradesh', zip=123, phone=92307, email='mark@abc.com'}, Person{firstname='Anil', lastname='rex', address='6th-cross', city='mumbai', state='maharashtra', zip=111, phone=999999, email='anil@abc.com'}, Person{firstname='Mukesh', lastname='Ambani', address='5th-cross', city='chennai', state='tamilnadu', zip=937, phone=998877, email='mukesh@abc.com'}]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
