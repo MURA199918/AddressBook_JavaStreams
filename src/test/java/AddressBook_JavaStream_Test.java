@@ -1,8 +1,11 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -67,5 +70,29 @@ public class AddressBook_JavaStream_Test {
         addressBookService.addContactToBook("Mark", "rex", "firstcross", "bangalore", "karnataka", 456, 8934, "mark@abc.com", "family");
         boolean result = addressBookService.checkAddressBookInSyncWithDB("Mark");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given6Contacts_WhenAddedToDB_ShouldMatchAddressBook_ContactEntries() throws AddressBookException {
+        Person[] arrayOfContacts = {
+                new Person(0, "Jeff", "Bezos", "1st-cross", "mumbai", "maharashtra", 234, 99865, "jeff@abc.com", "friends"),
+                new Person(0, "Bill", "Gates", "2nd-cross", "bangalore", "karnataka", 567, 991133, "bill@abc.com", "friends"),
+                new Person(0, "Mark", "Zuckerberg", "3rd-cross", "hyderabad", "andhrapradesh", 123, 92307, "mark@abc.com", "friends"),
+                new Person(0, "Sundar", "Pichai", "4th-cross", "bangalore", "karnataka", 734, 92100, "sundar@abc.com", "family"),
+                new Person(0, "Mukesh", "Ambani", "5th-cross", "chennai", "tamilnadu", 937, 998877, "mukesh@abc.com", "family"),
+                new Person(0, "Anil", "rex", "6th-cross", "mumbai", "maharashtra", 111, 999999, "anil@abc.com", "friends")
+        };
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookServiceData(AddressBookService.IOService.DB_IO);
+        Instant start = Instant.now();
+        addressBookService.addContactsToAddressBook(Arrays.asList(arrayOfContacts));
+        Instant end = Instant.now();
+        System.out.println("Duration without Thread : "+ Duration.between(start,end));
+        Instant threadStart = Instant.now();
+        addressBookService.addContactsToAddressBookWithThreads(Arrays.asList(arrayOfContacts));
+        Instant threadEnd = Instant.now();
+        System.out.println("Duration With Threads: "+Duration.between(threadStart, threadEnd));
+        addressBookService.printData(AddressBookService.IOService.DB_IO);
+        Assert.assertEquals(19, addressBookService.countEntries(AddressBookService.IOService.DB_IO));
     }
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-12-22T14:24:34" hostname="DESKTOP-J9DM2GE" time="0.312">
+<testsuite name="AddressBook_JavaStream_Test" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-12-23T10:19:33" hostname="DESKTOP-J9DM2GE" time="0.309">
   <properties/>
-  <testcase name="givenNewContact_WhenAdded_ShouldSyncWithDB" classname="AddressBook_JavaStream_Test" time="0.312">
+  <testcase name="givenNewContact_WhenAdded_ShouldSyncWithDB" classname="AddressBook_JavaStream_Test" time="0.309">
     <failure message="java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
 	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
 	at java.base/java.util.Objects.checkIndex(Objects.java:372)
 	at java.base/java.util.ArrayList.get(ArrayList.java:459)
-	at AddressBookService.checkAddressBookInSyncWithDB(AddressBookService.java:84)
-	at AddressBook_JavaStream_Test.givenNewContact_WhenAdded_ShouldSyncWithDB(AddressBook_JavaStream_Test.java:68)
+	at AddressBookService.checkAddressBookInSyncWithDB(AddressBookService.java:112)
+	at AddressBook_JavaStream_Test.givenNewContact_WhenAdded_ShouldSyncWithDB(AddressBook_JavaStream_Test.java:71)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -60,11 +60,11 @@
 </failure>
   </testcase>
   <system-out><![CDATA[connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@74e356b0
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
 connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@21bdd031
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@7e4de117
 connecting to the database:jdbc:mysql://localhost:3306/addressbooksql_service?useSSL=false
-connection is successful!!!!com.mysql.jdbc.JDBC4Connection@6a82127b
+connection is successful!!!!com.mysql.jdbc.JDBC4Connection@38a2850
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

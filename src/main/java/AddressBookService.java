@@ -1,10 +1,8 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBookService {
+
 
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
     private List<Person> addressBookDataList;
@@ -79,6 +77,36 @@ public class AddressBookService {
         addressBookDataList.add(addressBookDBService.addContactToBook(firstname, lastname, address, city, state, zip, phone, email, type));
     }
 
+    public void addContactsToAddressBook(List<Person> addressBookDataList) {
+        addressBookDataList.forEach(addressBookData->{
+            System.out.println("Contact being Added: "+addressBookData.firstname);
+            this.addContactToBook(addressBookData.firstname, addressBookData.lastname, addressBookData.address, addressBookData.city, addressBookData.state, addressBookData.zip, addressBookData.phone, addressBookData.email, addressBookData.type);
+            System.out.println("Contact Added: "+addressBookData.firstname);
+        });
+        System.out.println(this.addressBookDataList);
+    }
+
+    public void addContactsToAddressBookWithThreads(List<Person> addressBookDataList) {
+        Map<Integer, Boolean> contactAdditionStatus = new HashMap<Integer, Boolean>();
+        addressBookDataList.forEach(contactData -> {
+            Runnable task = () -> {
+                contactAdditionStatus.put(contactData.hashCode(), false);
+                System.out.println("Contact being Added: "+Thread.currentThread().getName());
+                this.addContactToBook(contactData.firstname, contactData.lastname, contactData.address, contactData.city, contactData.state, contactData.zip, contactData.phone, contactData.email, contactData.type);
+                contactAdditionStatus.put(contactData.hashCode(), true);
+                System.out.println("Contact Added: "+Thread.currentThread().getName());
+            };
+            Thread thread = new Thread(task, contactData.firstname);
+            thread.start();
+        });
+        while (contactAdditionStatus.containsValue(false)){
+            try{
+                Thread.sleep(10);
+            }catch (InterruptedException e){ }
+        }
+        System.out.println(addressBookDataList);
+    }
+
     public boolean checkAddressBookInSyncWithDB(String name) {
         List<Person> addressBookDataList = addressBookDBService.getAddressBookData(name);
         return addressBookDataList.get(0).equals(getAddressBookData(name));
@@ -105,5 +133,14 @@ public class AddressBookService {
     public int getNoOfActiveContacts() throws AddressBookException {
         return addressBookDBService.getNoOfActiveContactfromDB();
     }
+
+    public void printData(IOService ioService) {
+        System.out.println(addressBookDataList);
+    }
+
+    public int countEntries(IOService ioService) {
+        return addressBookDataList.size();
+    }
+
 
 }
