@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AddressBook_REST_AssuredTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-24T10:06:29" hostname="DESKTOP-J9DM2GE" time="1.984">
+  <properties/>
+  <testcase name="givenContacts_OnPost_ShouldReturnAddedContact" classname="AddressBook_REST_AssuredTest" time="1.984"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
