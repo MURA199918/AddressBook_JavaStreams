@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
@@ -6,6 +7,10 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -197,7 +202,7 @@ public class AddressBookMain {
         boolean nextOption = true;
         while (nextOption) {
             System.out.println(
-                    "Select 1. search a person by city\n 2.search a person by state\n 3. view person and cities\n 4. view person and states\n 5.find head count in city\n 6.find head count in state\n 7.Sorting of entries based on firstname\n 8.Sorting of entries based on city\n 9.Sorting of entries based on state\n 10.Sorting of entries based on zip\n 11.Write Addressbook Data into file\\n 12.Read AddressBook Data From File\\n 13.Write Data to CSV\\n 14.Read Data From CSV\\n 15.Write Data into JSON file\\n 16.Read Data from JSON file\\n 17.Exit");
+                    "Select 1. search a person by city\n 2.search a person by state\n 3. view person and cities\n 4. view person and states\n 5.find head count in city\n 6.find head count in state\n 7.Sorting of entries based on firstname\n 8.Sorting of entries based on city\n 9.Sorting of entries based on state\n 10.Sorting of entries based on zip\n 11.Write Addressbook Data into file\\n 12.Read AddressBook Data From File\\n 13.Write Data to CSV\\n 14.Read Data From CSV\\n 15.Write Data into JSON file\\n 16.Read Data from JSON file\\n 17.Write Data into JSON Server\\n 18.Read Data from JSON Server\\n 19.Exit");
             int option = sc.nextInt();
             switch (option) {
                 case 1:
@@ -420,6 +425,29 @@ public class AddressBookMain {
                     }
                     break;
                 case 17:
+                    RestAssured.baseURI = "http://localhost";
+                    RestAssured.port = 4000;
+                    Response response = RestAssured.given()
+                            .contentType(ContentType.JSON)
+                            .accept(ContentType.JSON)
+                            .body("{\"firstname\": \"Lisa\",\"lastname\": \"rex\",\"address\": \"3rd-cross\",\"city\": \"chennai\",\"state\": \"tamilnadu\",\"zip\": \"620019\",\"phone\": \"991166\",\"email\": \"lisa@abc.com\",\"type\": \"family\"}")
+                            .when()
+                            .post("/contacts/create");
+                    String respAsStr = response.asString();
+                    JsonObject jsonObject = new Gson().fromJson(respAsStr, JsonObject.class);
+                    int id = jsonObject.get("id").getAsInt();
+                    response.then().body("id", Matchers.any(Integer.class));
+                    response.then().body("firstname", Matchers.is("Lisa"));
+                    break;
+                case 18:
+                    RestAssured.baseURI = "http://localhost";
+                    RestAssured.port = 4000;
+                    int contactId = 2;
+                    Response response1 = RestAssured.get("/contacts/list");
+                    System.out.println("AT FIRST: "+response1.asString());
+                    response1.then().body("id", Matchers.hasItems(1,2));
+                    response1.then().body("firstname", Matchers.hasItems("Priya"));
+                case 19:
                     System.out.println("Thank You!!!!");
                     nextOption = false;
                     break;
