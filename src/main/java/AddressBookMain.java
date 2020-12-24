@@ -337,6 +337,7 @@ public class AddressBookMain {
                     nextOption = true;
                     break;
                 case 11:
+                    System.out.println("Writing into a file");
                     StringBuffer empBuffer = new StringBuffer();
                     AddressBookList.entrySet().forEach(x->{
                         String nameString = x.getKey()+"\n";
@@ -354,12 +355,14 @@ public class AddressBookMain {
                     }
                     break;
                 case 12:
+                    System.out.println("Reading from a file");
                     try {
                         Files.lines(new File("addressBook-file.txt").toPath()).map(line -> line.trim()).forEach(line -> System.out.println(line));
                     } catch (IOException e) {
                     }
                     break;
                 case 13:
+                    System.out.println("Writing into a CSV File");
                     try(Writer writer = Files.newBufferedWriter(Paths.get(ADDRESSBOOK_CSV_FILE));){
                         ColumnPositionMappingStrategy columnPositionMappingStrategy = new ColumnPositionMappingStrategy();
                         columnPositionMappingStrategy.setType(Person.class);
@@ -384,6 +387,7 @@ public class AddressBookMain {
                     }
                     break;
                 case 14:
+                    System.out.println("Reading from a CSV File");
                     try(Reader reader = Files.newBufferedReader(Paths.get(ADDRESSBOOK_CSV_FILE));){
                         CSVReader csvReader = new CSVReader(reader);
                         List<String[]> records = csvReader.readAll();
@@ -400,6 +404,7 @@ public class AddressBookMain {
                         }
                     }
                 case 15:
+                    System.out.println("Writing into a JSON file");
                     try {
                         List<Person> listOfPersons = new ArrayList<>();
                         AddressBookList.values().forEach(x->x.contactDetails.forEach(y->{
@@ -416,6 +421,7 @@ public class AddressBookMain {
                     }
                     break;
                 case 16:
+                    System.out.println("Reading from a JSON File");
                     Gson gson1 = new Gson();
                     BufferedReader br = new BufferedReader(new FileReader(ADDRESSBOOK_JSON_FILE));
                     Person [] personObj = gson1.fromJson(br,Person[].class);
@@ -425,6 +431,7 @@ public class AddressBookMain {
                     }
                     break;
                 case 17:
+                    System.out.println("Writing into a JSON Server");
                     RestAssured.baseURI = "http://localhost";
                     RestAssured.port = 4000;
                     Response response = RestAssured.given()
@@ -440,6 +447,7 @@ public class AddressBookMain {
                     response.then().body("firstname", Matchers.is("Lisa"));
                     break;
                 case 18:
+                    System.out.println("Reading from a JSON Server");
                     RestAssured.baseURI = "http://localhost";
                     RestAssured.port = 4000;
                     int contactId = 2;
